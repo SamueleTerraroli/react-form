@@ -1,6 +1,6 @@
 import Article from "./Article"
 
-const ArticleList = ({ articles, deleteArticle }) => {
+const ArticleList = ({ articles, editArticle, deleteArticle }) => {
 
     return (
         <ul className="list-group">
@@ -8,6 +8,7 @@ const ArticleList = ({ articles, deleteArticle }) => {
                 <Article
                     key={index}
                     title={title}
+                    editArticle={(newTitle) => editArticle(index, newTitle)}
                     deleteArticle={() => deleteArticle(index)}
                 />
             ))}

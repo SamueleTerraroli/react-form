@@ -9,6 +9,12 @@ const App = () => {
     setArticles([...articles, title]);
   };
 
+  const editArticle = (index, newTitle) => {
+    const updatedArticles = [...articles];
+    updatedArticles[index] = newTitle;
+    setArticles(updatedArticles);
+  }
+
   const deleteArticle = (index) => {
     setArticles(articles.filter((_, i) => i !== index));
   };
@@ -17,7 +23,7 @@ const App = () => {
     <div className="container mt-5">
       <h1>Blog</h1>
       <Form addArticle={addArticle} />
-      <ArticleList articles={articles} deleteArticle={deleteArticle} />
+      <ArticleList articles={articles} editArticle={editArticle} deleteArticle={deleteArticle} />
     </div>
   )
 }
